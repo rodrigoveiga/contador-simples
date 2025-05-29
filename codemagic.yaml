@@ -2,8 +2,6 @@ workflows:
   android-release:
     name: Build Android .aab
     environment:
-      android_signing:
-        keystore_reference: my_keystore
       vars:
         PACKAGE_NAME: "com.rodrigoveiga.contadorsimples"
     scripts:
