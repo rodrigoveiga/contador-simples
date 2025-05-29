@@ -1,5 +1,13 @@
 workflows:
-    sample-workflow:
-        name: Codemagic Sample Workflow
-        max_build_duration: 120
-        instance_type: mac_mini_m2
+  android-release:
+    name: Build Android .aab
+    environment:
+      android_signing:
+        keystore_reference: my_keystore
+      vars:
+        PACKAGE_NAME: "com.rodrigoveiga.contadorsimples"
+    scripts:
+      - ./gradlew clean
+      - ./gradlew bundleRelease
+    artifacts:
+      - build/app/outputs/bundle/release/*.aab
